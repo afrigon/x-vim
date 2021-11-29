@@ -8,6 +8,4 @@ function! XIndent()
     if previous =~ "{" && previous !~ "}" && line !~ "}" && line !~ ":$"
         return indent(previousNum) + &tabstop
     endif
-
-    ...
 endfunction

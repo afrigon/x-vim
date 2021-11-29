@@ -34,6 +34,7 @@ syntax keyword xKeywords
             \ break
             \ continue
             \ return
+            \ nil
 
 syntax keyword xConditional
             \ if
