@@ -20,6 +20,6 @@ if exists("*XIndent")
     finish
 endif
 
-function! XIndent(v:lnum)
+function XIndent(lnum)
     return cindent(a:lnum)
 endfunction
