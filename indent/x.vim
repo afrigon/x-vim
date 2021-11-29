@@ -1,11 +1,25 @@
-setlocal indentexpr=XIndent()
+" Only load this indent file when no other was loaded.
+if exists("b:did_indent")
+    finish
+endif
+let b:did_indent = 1
 
-function! XIndent()
-    let line = getline(v:lnum)
-    let previousNum = prevnonblank(v:lnum - 1)
-    let previous = getline(previousNum)
+setlocal cindent
+setlocal cinoptions=L0,(s,Ws,J1,j1,m1
+setlocal cinkeys=0{,0},!^F,o,O,0[,0],0(,0)
+setlocal cinwords=if,else,loop,fun
 
-    if previous =~ "{" && previous !~ "}" && line !~ "}" && line !~ ":$"
-        return indent(previousNum) + &tabstop
-    endif
+setlocal nolisp
+setlocal autoindent
+
+setlocal indentkeys=0{,0},!^F,o,O,0[,0],0(,0)
+
+setlocal indentexpr=XIndent(v:lnum)
+
+if exists("*XIndent")
+    finish
+endif
+
+function! XIndent(v:lnum)
+    return cindent(a:lnum)
 endfunction
