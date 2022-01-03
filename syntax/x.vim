@@ -30,6 +30,7 @@ syntax match xOperator "\v\>"
 " Keywords
 syntax keyword xKeywords
             \ fun
+            \ object
             \ self
             \ break
             \ continue
